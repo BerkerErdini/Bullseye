@@ -44,7 +44,12 @@ struct ContentView: View {
                         .font(.title3)
                 }
                 .padding(20.0)
-                .background(Color.blue)
+                .background(
+                    ZStack {
+                        Color("ButtonColor")
+                        LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
+                    }
+                )
                 .foregroundColor(Color.white)
                 .cornerRadius(21.0)
                 .alert(isPresented: $alertIsVisible, content: {
@@ -60,6 +65,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
+            
             
             
         ContentView()
